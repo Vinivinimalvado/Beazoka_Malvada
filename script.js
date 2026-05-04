@@ -1,84 +1,60 @@
-// DATA DO INÍCIO DO NAMORO
-const inicio = new Date("2026-03-27");
-
-// FRASES
-const mensagens = [
+/* FRASES */
+const frases = [
+  "Você é o motivo do meu sorriso bobo.",
   "Você é o six do meu seven.",
   "Você é a AU da minha aura.",
-  "Você não é parte da minha vida. Você é a minha vida.",
-  "O mundo fica mais leve quando você tá nele.",
-  "Se eu tivesse que escolher de novo, seria você. Sempre."
+  "Com você, tudo faz mais sentido.",
+  "Mesmo nos dias difíceis, você é calma.",
+  "Não é sobre perfeição, é sobre ser você.",
+  "Se eu tivesse que escolher de novo, ainda seria você."
 ];
 
+let indice = 0;
 let cliques = 0;
 
-// CONTADOR
-function atualizarTempo() {
-  const agora = new Date();
-  const diff = agora - inicio;
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("tempo").innerText = `${dias} dias`;
-}
-setInterval(atualizarTempo, 1000);
-atualizarTempo();
+function trocarFrase() {
+  const msg = document.getElementById("mensagem");
+  msg.style.opacity = 0;
 
-// AÇÃO PRINCIPAL
-function acaoPrincipal() {
+  setTimeout(() => {
+    msg.innerText = frases[indice];
+    msg.style.opacity = 1;
+  }, 200);
+
+  indice = (indice + 1) % frases.length;
   cliques++;
-  tocarMusica();
-  mudarMensagem();
-  escreverCarta();
 
-  if (cliques === 5) {
-    document.getElementById("mensagem").innerText =
-      "Se você chegou até aqui… é porque é você ❤️";
+  if (cliques === 7) {
+    setTimeout(() => {
+      msg.innerText = "Se você chegou até aqui… é porque é você ❤️";
+    }, 300);
   }
 }
 
-// MENSAGEM
-function mudarMensagem() {
-  const i = Math.floor(Math.random() * mensagens.length);
-  document.getElementById("mensagem").innerText = mensagens[i];
+/* CORAÇÕES */
+function criarCoracao() {
+  const coracao = document.createElement("div");
+  coracao.classList.add("coracao");
+
+  const tipos = ["❤️", "💖", "💘", "💗", "💓"];
+  coracao.innerText = tipos[Math.floor(Math.random() * tipos.length)];
+
+  coracao.style.left = Math.random() * 100 + "vw";
+  coracao.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+  document.querySelector(".coracoes").appendChild(coracao);
+
+  setTimeout(() => coracao.remove(), 7000);
 }
 
-// CARTA ANIMADA
-function escreverCarta() {
-  const texto = "Eu não sei amar pouco. E ainda bem, porque você merece tudo.";
-  let i = 0;
-  const el = document.getElementById("carta");
-  el.innerText = "";
+setInterval(criarCoracao, 300);
 
-  const intervalo = setInterval(() => {
-    el.innerText += texto[i];
-    i++;
-    if (i >= texto.length) clearInterval(intervalo);
-  }, 40);
-}
+/* SLIDER AUTOMÁTICO */
+const slides = document.querySelectorAll(".slide");
+let slideAtual = 0;
 
-// DIA RUIM
-function diaRuim() {
-  document.getElementById("mensagem").innerText =
-    "Respira. Você não tá sozinha. Eu tô aqui.";
-}
-
-// SALVAR FAVORITA
-function salvarFavorita() {
-  localStorage.setItem("frase", document.getElementById("mensagem").innerText);
-  alert("Frase salva 💖");
-}
-
-// MÚSICA
-function tocarMusica() {
-  const m = document.getElementById("musica");
-  m.volume = 0.25;
-  m.play();
-}
-
-// CORAÇÕES
 setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerText = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.querySelector(".hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 10000);
-}, 800);
+  slides[slideAtual].classList.remove("active");
+  slideAtual = (slideAtual + 1) % slides.length;
+  slides[slideAtual].classList.add("active");
+}, 3500);
