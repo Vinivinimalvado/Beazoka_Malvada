@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bia ❤️</title>
+  <title>Bia 💙</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="container">
-    <h1>Bia, isso é pra você.</h1>
+  <div class="card">
+    <h1>Bia</h1>
 
-    <!-- SLIDER -->
-    <div class="slider">
-      <img src="assets/bia1.jpg" class="slide active">
-      <img src="assets/bia2.jpg" class="slide">
+    <p class="tempo">Estamos juntos há <span id="dias"></span> dias 💙</p>
+
+    <!-- FOTO POLAROID -->
+    <div class="polaroid">
+      <img src="assets/bia1.jpg" alt="Nós dois">
+      <span>nós 💙</span>
     </div>
 
-    <p id="mensagem">
-      Entre linhas de código e pensamentos aleatórios, você virou minha parte favorita.
+    <p class="frase">
+      Respira. Você não tá sozinha.  
+      Eu tô aqui.
     </p>
 
-    <button onclick="trocarFrase()">Clique aqui ❤️</button>
-  </main>
+    <p class="frase menor">
+      Eu não sei amar pouco.  
+      Eu ainda bem, porque você merece tudo.
+    </p>
 
-  <!-- Corações -->
-  <div class="coracoes"></div>
+    <div class="botoes">
+      <button onclick="trocarFrase()">clique aqui</button>
+      <button class="sec">dia ruim</button>
+    </div>
+
+    <button class="salvar">⭐ salvar frase</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
