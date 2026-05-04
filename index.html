@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Pra Você ❤️</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Bia ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-    <h1>💖 Oi, meu amor 💖</h1>
-    <p id="mensagem">
-        Fiz isso só pra te lembrar o quanto você é especial pra mim.
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- CORAÇÕES -->
+  <div class="hearts"></div>
+
+  <div class="glass-card">
+    <h1>Bia</h1>
+
+    <!-- CONTADOR -->
+    <p class="contador">
+      Estamos juntos há <span id="tempo"></span> 💫
     </p>
 
-    <button onclick="mostrarMensagem()">Clique aqui ❤️</button>
-</div>
+    <!-- FOTO -->
+    <div class="foto">
+      <img src="foto.jpg" alt="Nós dois">
+    </div>
 
-<script src="script.js"></script>
+    <!-- MENSAGEM -->
+    <p id="mensagem"></p>
+
+    <!-- CARTA -->
+    <div id="carta" class="carta"></div>
+
+    <!-- BOTÕES -->
+    <button onclick="acaoPrincipal()">clique aqui</button>
+    <button class="sec" onclick="diaRuim()">dia ruim</button>
+    <button class="sec" onclick="salvarFavorita()">⭐ salvar frase</button>
+
+    <footer>feito com amor, só pra você</footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
