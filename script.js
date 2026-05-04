@@ -10,7 +10,6 @@ const frases = [
 ];
 
 let indice = 0;
-let cliques = 0;
 
 function trocarFrase() {
   const msg = document.getElementById("mensagem");
@@ -22,13 +21,6 @@ function trocarFrase() {
   }, 200);
 
   indice = (indice + 1) % frases.length;
-  cliques++;
-
-  if (cliques === 7) {
-    setTimeout(() => {
-      msg.innerText = "Se você chegou até aqui… é porque é você ❤️";
-    }, 300);
-  }
 }
 
 /* CORAÇÕES */
